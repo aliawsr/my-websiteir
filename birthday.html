@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تولد مبارک 🎉</title>
+<style>
+:root{--bg1:#2a1050;--bg2:#6a1b6f;--ink:#fff7ec;--gold:#ffc94d;--pink:#ff5d8f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root{--bg1:#1c0a38;--bg2:#4d1452}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0}
+body{font-family:Vazirmatn,Tahoma,"Segoe UI",sans-serif;background:linear-gradient(160deg,var(--bg1),var(--bg2));color:var(--ink);overflow:hidden;user-select:none;-webkit-user-select:none}
+.screen{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+.screen.on{display:flex}
+h1{font-size:2.4rem;margin:0 0 8px}
+h2{font-size:1.6rem;margin:0 0 6px;font-weight:700}
+p{font-size:1.15rem;margin:8px 0 28px;line-height:1.8;max-width:20em}
+.big{font-size:3rem;margin:0}
+button{font:inherit;font-size:1.3rem;font-weight:700;background:var(--gold);color:#3a1450;border:0;border-radius:999px;padding:14px 40px;cursor:pointer;box-shadow:0 6px 0 #c9942a;transition:transform .1s}
+button:active{transform:translateY(4px);box-shadow:0 2px 0 #c9942a}
+.hud{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);left:0;right:0;text-align:center;font-size:1.2rem;font-weight:700;z-index:5;pointer-events:none}
+/* balloons */
+#sky{position:absolute;inset:0;overflow:hidden}
+.balloon{position:absolute;bottom:-130px;width:70px;height:88px;border-radius:50% 50% 48% 48%;cursor:pointer;animation:rise linear forwards;box-shadow:inset -8px -8px 0 rgba(0,0,0,.12),inset 8px 8px 0 rgba(255,255,255,.18)}
+.balloon::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:40px;background:rgba(255,255,255,.6)}
+.balloon::before{content:"";position:absolute;left:50%;top:calc(100% - 4px);margin-left:-6px;border:6px solid transparent;border-bottom-color:inherit;border-top:0}
+@keyframes rise{to{transform:translateY(calc(-100vh - 260px))}}
+.balloon.pop{animation:pop .25s ease-out forwards;pointer-events:none}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(0);opacity:0}}
+/* cake */
+#cake{position:relative;width:min(320px,86vw);margin-top:70px}
+.candles{display:flex;justify-content:space-between;padding:0 10px;height:100px;align-items:flex-end}
+.candle{position:relative;width:16%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;cursor:pointer}
+.stick{width:12px;height:52px;border-radius:3px;background:repeating-linear-gradient(135deg,#fff 0 6px,var(--pink) 6px 12px)}
+.flame{width:16px;height:26px;margin-bottom:3px;background:radial-gradient(ellipse at 50% 70%,#fff6b0 0,#ffb62e 45%,#ff6a1a 100%);border-radius:50% 50% 50% 50%/65% 65% 35% 35%;transform-origin:50% 100%;animation:flick .35s infinite alternate;transition:transform .15s,opacity .15s;filter:drop-shadow(0 0 8px #ffb62e)}
+.candle.off .flame{transform:scale(0);opacity:0}
+.candle.off .stick::after{content:"";display:block;width:6px;height:16px;margin:-18px auto 0;background:rgba(255,255,255,.35);border-radius:50%;animation:smoke 1s ease-out forwards}
+.candle.done{pointer-events:none}
+@keyframes flick{from{rotate:-4deg}to{rotate:4deg;scale:1 1.08}}
+@keyframes smoke{from{opacity:.9;transform:translateY(0)}to{opacity:0;transform:translateY(-26px)}}
+.layer1{height:56px;background:#ff8fb1;border-radius:14px 14px 0 0;position:relative}
+.layer1::before{content:"";position:absolute;inset:0 0 auto;height:18px;background:#fff;border-radius:14px 14px 40% 40%/14px 14px 100% 100%}
+.layer2{height:70px;background:#c0763f;border-radius:0 0 16px 16px;box-shadow:0 10px 0 #7a4423}
+.plate{height:12px;width:112%;margin:10px -6% 0;background:#e9dcf2;border-radius:50%}
+#msg2{min-height:1.8em;margin-top:34px;font-size:1.1rem}
+/* confetti */
+.conf{position:fixed;top:-20px;width:10px;height:14px;animation:fall linear forwards;z-index:9;pointer-events:none}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+@media (prefers-reduced-motion:reduce){.flame{animation:none}}
+#stars{position:fixed;inset:0;z-index:0;pointer-events:none}
+.star{position:absolute;border-radius:50%;background:#fff;animation:tw 2s infinite alternate}
+@keyframes tw{from{opacity:.15}to{opacity:1}}
+.moon{position:fixed;top:7%;right:8%;width:70px;height:70px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fffbe0,#ffe08a);box-shadow:0 0 40px 12px rgba(255,224,138,.45);z-index:0;pointer-events:none;animation:flt 6s ease-in-out infinite alternate}
+@keyframes flt{to{transform:translateY(12px)}}
+.screen{z-index:2}
+h1{background:linear-gradient(90deg,#ffe08a,#ff9ccf,#9ee7ff,#ffe08a);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 5s linear infinite;filter:drop-shadow(0 0 14px rgba(255,200,120,.5))}
+@keyframes shine{to{background-position:300% 0}}
+.big{animation:flt 2.5s ease-in-out infinite alternate;filter:drop-shadow(0 0 16px rgba(255,201,77,.7))}
+button{box-shadow:0 6px 0 #c9942a,0 0 30px rgba(255,201,77,.6);animation:pulse 1.8s ease-in-out infinite}
+button:active{animation:none}
+@keyframes pulse{50%{box-shadow:0 6px 0 #c9942a,0 0 50px rgba(255,201,77,.95)}}
+.balloon{filter:drop-shadow(0 0 12px rgba(255,255,255,.4))}
+#cake::before{content:"";position:absolute;inset:-50px;background:radial-gradient(circle,rgba(255,201,77,.35),transparent 65%);z-index:-1;animation:aura 3s ease-in-out infinite alternate}
+@keyframes aura{from{opacity:.5;transform:scale(.9)}to{opacity:1;transform:scale(1.1)}}
+.spark{position:fixed;width:8px;height:8px;margin:-4px;border-radius:50%;pointer-events:none;z-index:20;animation:spk .75s ease-out forwards}
+@keyframes spk{to{transform:translate(var(--dx),var(--dy)) scale(0);opacity:0}}
+.candles{width:78%;margin:0 auto;padding:0 6px}
+.tier{position:relative;margin:0 auto}
+.tier::before{content:"";position:absolute;left:0;right:0;top:0;height:24px;background:radial-gradient(circle at 14px 10px,#fff 0 12px,transparent 13px) 0 0/28px 100% repeat-x,linear-gradient(#fff,#fff) 0 0/100% 10px no-repeat;border-radius:14px 14px 0 0}
+.tier::after{content:"";position:absolute;inset:30px 8px 8px;background:radial-gradient(circle,#ff5d8f 0 2px,transparent 3px) 0 0/22px 18px,radial-gradient(circle,#ffc94d 0 2px,transparent 3px) 11px 9px/22px 18px,radial-gradient(circle,#4dd2ff 0 2px,transparent 3px) 5px 4px/26px 20px;opacity:.9}
+.tr1{width:78%;height:52px;background:#ffb3cf;border-radius:14px 14px 0 0}
+.tr2{width:92%;height:60px;background:#b9a3ff;margin-top:-2px;border-radius:14px 14px 0 0}
+.tr3{width:100%;height:74px;background:#c0763f;margin-top:-2px;border-radius:14px 14px 16px 16px;box-shadow:0 10px 0 #7a4423}
+.rib{position:absolute;left:0;right:0;bottom:16px;text-align:center;font-weight:700;color:#fff3dd;font-size:1.05rem;text-shadow:0 2px 0 #7a4423;z-index:2}
+#tm{font-size:1.6rem;font-weight:700;color:var(--gold);min-height:2.4em;margin:0 0 18px}
+#tb{display:flex;gap:22px;align-items:center;justify-content:center;min-height:100px}
+#tb button{transition:transform .35s}
+#gift{position:relative;width:190px;height:190px;margin:0 auto}
+.gbody{position:absolute;left:10px;right:10px;bottom:0;height:120px;background:linear-gradient(90deg,#e23d6f 0 42%,#ffd24d 42% 58%,#e23d6f 58%);border-radius:0 0 12px 12px;box-shadow:0 12px 24px rgba(0,0,0,.35)}
+.lid{position:absolute;left:0;right:0;top:20px;height:62px;background:linear-gradient(90deg,#ff5d8f 0 40%,#ffd24d 40% 60%,#ff5d8f 60%);border-radius:10px;z-index:2;cursor:pointer;transform-origin:0 100%;transition:transform .7s cubic-bezier(.5,-.4,.5,1.4),opacity .5s .3s;animation:wob 1.6s ease-in-out infinite}
+.lid.open{animation:none;transform:translate(70px,-80px) rotate(35deg);opacity:0}
+.bow{position:absolute;left:50%;top:-38px;transform:translateX(-50%);font-size:3.2rem;font-style:normal}
+@keyframes wob{50%{transform:translateY(-7px)}}
+#g1,#g2{text-align:center}
+#g2{display:none;animation:zoomin .9s ease-out}
+@keyframes zoomin{from{transform:scale(.4) rotateX(60deg);opacity:0}}
+.top{position:relative;width:230px;height:230px;margin:0 auto;background:linear-gradient(135deg,#ff5d8f,#c92a62);border-radius:14px;padding:18px;box-shadow:0 14px 30px rgba(0,0,0,.4)}
+.top::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:34px;margin-left:-17px;background:#ffd24d}
+.top::after{content:"";position:absolute;left:0;right:0;top:50%;height:34px;margin-top:-17px;background:#ffd24d}
+.inner{position:relative;z-index:1;width:100%;height:100%;background:radial-gradient(circle,#5a0f33,#2a0618);border-radius:8px;box-shadow:inset 0 8px 20px rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center}
+.card{background:#fff7ec;color:#3a1450;border-radius:10px;padding:10px 18px;box-shadow:0 0 34px rgba(255,201,77,.85);animation:cup 1s .5s both}
+.card small{display:block;font-size:.95rem}
+.card b{display:block;font-size:2.8rem;letter-spacing:.12em;direction:ltr}
+@keyframes cup{from{transform:translateY(50px) scale(.5);opacity:0}}
+#day{position:fixed;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,#3d8fe0,#9bd6ff 70%,#d9f0ff);opacity:0;transition:opacity 1.6s}
+body.day #day{opacity:1}
+.star{transition:transform 1.8s ease-in}
+body.day .star{transform:translateX(var(--dx))}
+.moon{z-index:8;pointer-events:auto;cursor:pointer;transition:translate 1.6s ease-in,opacity 1.4s}
+.moon::after{content:"";position:absolute;inset:-14px;border-radius:50%}
+body.day .moon{translate:0 -45vh;opacity:0;pointer-events:none}
+.sun{position:fixed;top:7%;right:8%;width:78px;height:78px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#fff6a8,#ffd23f 60%,#ffab1a);box-shadow:0 0 60px 22px rgba(255,200,40,.6);z-index:8;translate:0 -45vh;opacity:0;pointer-events:none;cursor:pointer;transition:translate 1.7s ease-out .5s,opacity 1.2s .5s}
+.sun::before{content:"";position:absolute;inset:-34px;border-radius:50%;background:repeating-conic-gradient(rgba(255,214,64,.6) 0 8deg,transparent 8deg 22.5deg);-webkit-mask-image:radial-gradient(circle,#000 55%,transparent 70%);mask-image:radial-gradient(circle,#000 55%,transparent 70%);animation:sunspin 14s linear infinite;z-index:-1}
+@keyframes sunspin{to{transform:rotate(360deg)}}
+body.day .sun{translate:0 0;opacity:1;pointer-events:auto}
+.cloud{position:fixed;z-index:1;width:130px;height:42px;background:#fff;border-radius:42px;pointer-events:none;opacity:0;translate:var(--from) 0;transition:translate 2.4s cubic-bezier(.2,.8,.3,1) .6s,opacity 1.2s .6s;animation:drift 9s ease-in-out infinite alternate}
+.cloud::before,.cloud::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.cloud::before{width:62px;height:62px;top:-32px;left:20px}
+.cloud::after{width:46px;height:46px;top:-22px;left:68px}
+body.day .cloud{translate:0 0;opacity:.92}
+.c1{top:12%;--from:-120vw}.c2{top:26%;--from:120vw;scale:1.3}.c3{top:44%;--from:-120vw;scale:.8}.c4{top:62%;--from:120vw}.c5{top:80%;--from:-120vw;scale:1.2}
+@keyframes drift{to{transform:translateX(26px)}}
+</style>
+</head>
+<body>
+<div id="stars"></div><div id="day"></div><div class="moon"></div><div class="sun"></div><div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div><div class="cloud c4"></div><div class="cloud c5"></div>
+
+<section id="s0" class="screen on">
+  <h1>سلام داداشی</h1>
+  <p class="big">تولد مبارک 🎉</p>
+  <p>برای شروع، تبریک اصلی رو باید بازی کنی</p>
+  <button id="start">شروع بازی</button>
+</section>
+
+<section id="s1" class="screen">
+  <div class="hud">بادکنک‌ها رو بترکون: <span id="c1">0</span> / 10</div>
+  <div id="sky"></div>
+</section>
+
+<section id="s2" class="screen">
+  <div class="hud">شمع‌ها رو خاموش کن: <span id="c2">0</span> / 5</div>
+  <div id="cake">
+    <div class="candles" id="candles"></div>
+    <div class="tier tr1"></div><div class="tier tr2"></div><div class="tier tr3"><span class="rib">تولد مبارک 🎂</span></div><div class="plate"></div>
+  </div>
+  <div id="msg2"></div>
+</section>
+
+<section id="st" class="screen">
+  <h2 id="tq"></h2>
+  <p id="tm">&nbsp;</p>
+  <div id="tb"><button id="yes">آره</button><button id="no">نه</button></div>
+</section>
+
+<section id="s3" class="screen">
+  <div id="g1">
+    <h2>یه کادو برات دارم 🎁</h2>
+    <div id="gift"><div class="lid" id="lid"><i class="bow">🎀</i></div><div class="gbody"></div></div>
+    <p id="gh">روی درِ جعبه بزن</p>
+  </div>
+  <div id="g2">
+    <div class="top"><div class="inner"><div class="card"><small>کد تو</small><b id="code">8086</b></div></div></div>
+    <h2 style="margin-top:26px">تولدت مبارک داداشی 🎉</h2>
+    <p style="font-size:.8rem;opacity:.45;margin:14px 0 0">کیوآر کد بعدی رو اسکن کن💕</p>
+  </div>
+</section>
+<section id="s3old" class="screen">
+  <div class="big">👑</div><h1>تولد مبارک!! 🎂</h1>
+  <p>آفرین، همه مرحله‌ها رو رد کردی.<br>امیدوارم امسال بهترین سال زندگیت باشه 🎁</p>
+</section>
+
+<style>#lock{position:fixed;inset:0;z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:linear-gradient(160deg,#1c0a38,#4d1452);color:#fff7ec;font-family:Vazirmatn,Tahoma,sans-serif;text-align:center;padding:24px}#lock h2{margin:0;font-size:1.5rem}#lock input{width:min(220px,70vw);font:inherit;font-size:2rem;letter-spacing:.3em;text-indent:.3em;text-align:center;direction:ltr;color:#fff7ec;background:rgba(255,255,255,.1);border:2px solid rgba(255,201,77,.6);border-radius:14px;padding:10px;outline:none}#lock button{margin:6px 0 0}#lock .shk{animation:lks .4s}@keyframes lks{20%,60%{transform:translateX(-10px)}40%,80%{transform:translateX(10px)}}#lkm{min-height:1.6em;color:#ff9ab8;font-weight:700}</style>
+<div id="lock"><h2>🔒 رمز رو وارد کن</h2><input id="lk" type="password" inputmode="numeric" maxlength="4" autocomplete="off"><button id="lkb">ورود</button><div id="lkm"></div></div>
+<script>
+const $ = id => document.getElementById(id);
+function show(n){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));$(n==='t'?'st':'s'+n).classList.add('on')}
+
+$('start').onclick = () => { show(1); startBalloons(); };
+
+/* Game 1 */
+let popped = 0, spawner = null;
+const colors = ['#ff5d8f','#ffc94d','#4dd2ff','#7cf29a','#b784ff','#ff8a4d'];
+function startBalloons(){
+  spawn();
+  spawner = setInterval(spawn, 650);
+}
+function spawn(){
+  const b = document.createElement('div');
+  b.className = 'balloon';
+  const c = colors[Math.floor(Math.random()*colors.length)];
+  b.style.background = c; b.style.borderBottomColor = c;
+  b.style.left = Math.random()*(innerWidth-80)+'px';
+  b.style.animationDuration = (4.5+Math.random()*3)+'s';
+  const hit = e => {
+    e.preventDefault();
+    if (b.classList.contains('pop')) return;
+    b.classList.add('pop'); burst(e.clientX,e.clientY,c);
+    setTimeout(()=>b.remove(),260);
+    popped++; $('c1').textContent = Math.min(popped,10);
+    if (popped >= 10){ clearInterval(spawner); setTimeout(()=>ask('آفرین! بریم مرحله بعد؟',()=>{show(2);initCake();}),600); }
+  };
+  b.addEventListener('pointerdown', hit);
+  b.addEventListener('animationend', ()=>{ if(!b.classList.contains('pop')) b.remove(); });
+  $('sky').appendChild(b);
+}
+
+/* Game 2: tap = off, relights itself, second tap = off for good */
+function initCake(){
+  const box = $('candles'); box.innerHTML = '';
+  const state = [];
+  for (let i=0;i<5;i++){
+    const c = document.createElement('div');
+    c.className = 'candle';
+    c.innerHTML = '<div class="flame"></div><div class="stick"></div>';
+    state[i] = {taps:0, busy:false};
+    c.addEventListener('pointerdown', e=>{
+      e.preventDefault();
+      const s = state[i];
+      if (s.busy || c.classList.contains('done')) return;
+      s.taps++;
+      c.classList.add('off'); burst(e.clientX,e.clientY,'#ffc94d');
+      if (s.taps === 1){
+        s.busy = true;
+        $('msg2').textContent = 'ای وای، دوباره روشن شد 😏';
+        setTimeout(()=>{ c.classList.remove('off'); s.busy = false; }, 1100);
+      } else {
+        c.classList.add('done');
+        $('msg2').textContent = '';
+        const n = state.filter(x=>x.taps>=2).length;
+        $('c2').textContent = n;
+        if (n === 5) setTimeout(()=>{show(3);},1000);
+      }
+    });
+    box.appendChild(c);
+  }
+}
+
+function burst(x,y,col){for(let i=0;i<14;i++){const s=document.createElement('div');s.className='spark';const a=Math.random()*6.28,d=40+Math.random()*60;s.style.cssText=`left:${x}px;top:${y}px;background:${col};box-shadow:0 0 8px ${col};--dx:${Math.cos(a)*d}px;--dy:${Math.sin(a)*d}px`;document.body.appendChild(s);setTimeout(()=>s.remove(),800)}}
+(function(){const st=$('stars');for(let i=0;i<70;i++){const e=document.createElement('div');e.className='star';const z=1+Math.random()*2.5;e.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;width:${z}px;height:${z}px;animation-delay:${Math.random()*2}s;animation-duration:${1.5+Math.random()*2}s`;st.appendChild(e)}})();
+$('lid').addEventListener('pointerdown',e=>{e.preventDefault();$('lid').classList.add('open');$('gh').textContent='';setTimeout(()=>{$('g1').style.display='none';$('g2').style.display='block';confetti();},900)});
+const lines=['مطمئنی؟','واقعا!!!','راحت میشی نزنی آره 🥺','منو دوست نداری؟','خوب دیگه باید آره بزنی'];
+function ask(title,next){
+  let n=0; $('tq').textContent=title; $('tm').innerHTML='&nbsp;';
+  const no=$('no'), yes=$('yes');
+  no.style.display=''; no.style.transform='scale(1)'; yes.style.transform='scale(1)';
+  show('t');
+  no.onclick=()=>{
+    n++; $('tm').textContent=lines[n-1];
+    if(n>=5){ no.style.display='none'; yes.style.transform='scale(1.25)'; }
+    else no.style.transform='scale('+Math.pow(.55,n)+')';
+  };
+  yes.onclick=next;
+}
+function confetti(){
+  for(let k=0;k<7;k++)setTimeout(()=>burst(innerWidth*(.12+Math.random()*.76),innerHeight*(.12+Math.random()*.4),colors[k%6]),k*450);
+  const cs = ['#ff5d8f','#ffc94d','#4dd2ff','#7cf29a','#b784ff'];
+  for (let i=0;i<90;i++){
+    const d = document.createElement('div');
+    d.className = 'conf';
+    d.style.left = Math.random()*100+'vw';
+    d.style.background = cs[i%cs.length];
+    d.style.animationDuration = (2.5+Math.random()*3)+'s';
+    d.style.animationDelay = Math.random()*1.5+'s';
+    document.body.appendChild(d);
+    setTimeout(()=>d.remove(), 7500);
+  }
+}
+(function(){
+  document.querySelectorAll('.star').forEach(e=>{const l=parseFloat(e.style.left)<50;e.style.setProperty('--dx',(l?'-':'')+(70+Math.random()*60)+'vw');e.style.transitionDelay=(Math.random()*.6)+'s'});
+  const t=()=>document.body.classList.toggle('day');
+  document.querySelector('.moon').addEventListener('click',t);
+  document.querySelector('.sun').addEventListener('click',t);
+})();
+(function(){
+  const L=document.getElementById('lock'),i=document.getElementById('lk'),m=document.getElementById('lkm');
+  const ok=v=>v.split('').map(c=>c.charCodeAt(0)^7).join(',')==='50,54,55,52';
+  function go(){
+    if(ok(i.value)){L.remove();return}
+    m.textContent='رمز اشتباهه';
+    i.classList.remove('shk');void i.offsetWidth;i.classList.add('shk');i.value='';
+  }
+  i.addEventListener('input',()=>{i.value=i.value.replace(/\D/g,'').slice(0,4)});
+  i.addEventListener('keydown',e=>{if(e.key==='Enter')go()});
+  document.getElementById('lkb').onclick=go;
+  setTimeout(()=>i.focus(),100);
+})();
+</script>
+</body>
+</html>
